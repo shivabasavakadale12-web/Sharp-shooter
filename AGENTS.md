@@ -2,7 +2,7 @@
 - Project name: Sharp shooter
 - Unity version: Unity 6000.3.10f1
 - Active game object:
-  - Name: pistol
+  - Name: hit vfx
   - Tag: Untagged
-  - Layer: Player
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
