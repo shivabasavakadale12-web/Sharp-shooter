@@ -3,10 +3,16 @@ using UnityEngine;
 
 public class weapon : MonoBehaviour
 {
+    [SerializeField] ParticleSystem particle;
+    [SerializeField] Animator animator;
+
     StarterAssetsInputs inputs;
     RaycastHit hit;
+    EnemyHealth hitdamage;
 
+    const string reload = "shoot";
 
+    
      void Awake()
     {
         inputs = GetComponentInParent<StarterAssetsInputs>();
@@ -14,12 +20,16 @@ public class weapon : MonoBehaviour
     
     void Update()
     {
-        if(inputs.shoot)
+        if(!inputs.shoot) return;
+        particle.Play();
+        animator.Play(reload, 0, 0f);
+        inputs.shoot = false;
+
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
         {
-            Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity);
-            if (hit.collider == null) return;
-            Debug.Log(hit.collider.name);
-            inputs.shoot = false;
+            EnemyHealth enemyhealt = hit.collider.gameObject.GetComponent<EnemyHealth>();
+            enemyhealt?.takedamage(1);
         }
+
     }
 }
