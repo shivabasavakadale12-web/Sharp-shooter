@@ -3,17 +3,14 @@ using UnityEngine;
 public class WeaponPickup : MonoBehaviour
 {
     [SerializeField] WeaponSO weaponSO;
-
-     void Awake()
-    {
-        weaponSO = FindFirstObjectByType<WeaponSO>();
-    }
-
      void OnTriggerEnter(Collider other)
     {
+        Debug.Log("triggered by " + other.gameObject.name);
         if(other.gameObject.tag == "Player")
         {
-            Debug.Log(weaponSO.name);
+           ActiveWeapon activeWeapon = other.GetComponentInChildren<ActiveWeapon>();
+           activeWeapon.switchWeapon(weaponSO);
+           Destroy(this.gameObject);
         }
         
     }

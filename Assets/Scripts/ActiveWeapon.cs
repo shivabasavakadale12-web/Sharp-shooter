@@ -32,6 +32,13 @@ public class ActiveWeapon : MonoBehaviour
         Heandleshoot();
      
     }
+    
+    public void switchWeapon(WeaponSO weaponSO)
+    {
+        Destroy(weapon.gameObject);
+        weapon newWeapon = Instantiate(weaponSO.weaponprefab, transform).GetComponent<weapon>();
+        weapon = newWeapon;
+    }
 
     private void Heandleshoot()
     {
