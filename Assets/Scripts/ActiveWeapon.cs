@@ -30,7 +30,9 @@ public class ActiveWeapon : MonoBehaviour
     {
         timepass += Time.deltaTime;
         Heandleshoot();
-     
+        handleZoom();
+
+
     }
     
     public void switchWeapon(WeaponSO weaponSO)
@@ -55,5 +57,20 @@ public class ActiveWeapon : MonoBehaviour
         {
          inputs.shoot = false;
         }  
+    }
+
+    void handleZoom()
+    {
+        if (!weaponSO.CanZoom) return;
+
+        if (inputs.zoom)
+        {
+            Debug.Log("zoomed in");
+        }
+
+        else
+        {
+            Debug.Log("zoomed out ");
+        }
     }
 }
