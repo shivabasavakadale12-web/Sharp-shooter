@@ -9,4 +9,6 @@ public class WeaponSO : ScriptableObject
     public GameObject hitfx;
     public bool IsAutomatic = false;
     public bool CanZoom = false;
+    public float ZoomIn = 10f;
+    public float rotationspeed = 0.3f;
 }

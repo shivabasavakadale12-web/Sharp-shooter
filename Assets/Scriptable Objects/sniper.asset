@@ -17,3 +17,5 @@ MonoBehaviour:
   firerate: 1
   hitfx: {fileID: 4454506982475065567, guid: b893f75a9ba45744ebf894847528bc00, type: 3}
   IsAutomatic: 0
+  CanZoom: 1
+  ZoomIn: 10

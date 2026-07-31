@@ -1,24 +1,32 @@
 using StarterAssets;
+using Unity.Cinemachine;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 
 public class ActiveWeapon : MonoBehaviour
 {
-
+    [SerializeField] CinemachineVirtualCamera playerfollowcamera;
+    [SerializeField] GameObject scopeimage;
     [SerializeField] WeaponSO weaponSO;
     StarterAssetsInputs inputs;
 
+    FirstPersonController firstPersonController;
     Animator animator;
     weapon weapon;
 
+     float defaultfov;
+    float defaultrotationspeed;
     float timepass = 0f;
     const string reload = "shoot";
 
 
     void Awake()
     {
+        firstPersonController = GetComponentInParent<FirstPersonController>();
         animator = GetComponent<Animator>();
         inputs = GetComponentInParent<StarterAssetsInputs>();
+        defaultfov = playerfollowcamera.m_Lens.FieldOfView;
+        defaultrotationspeed = firstPersonController.RotationSpeed;
     }
 
      void Start()
@@ -65,12 +73,17 @@ public class ActiveWeapon : MonoBehaviour
 
         if (inputs.zoom)
         {
-            Debug.Log("zoomed in");
+            playerfollowcamera.m_Lens.FieldOfView = weaponSO.ZoomIn;
+            scopeimage.SetActive(true);
+            firstPersonController.changerotationspeed(weaponSO.rotationspeed);
         }
 
         else
         {
-            Debug.Log("zoomed out ");
+            playerfollowcamera.m_Lens.FieldOfView = defaultfov;
+            scopeimage.SetActive(false);
+            firstPersonController.changerotationspeed(defaultrotationspeed);
+
         }
     }
 }
