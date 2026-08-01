@@ -11,4 +11,5 @@ public class WeaponSO : ScriptableObject
     public bool CanZoom = false;
     public float ZoomIn = 10f;
     public float rotationspeed = 0.3f;
+    public int maxammo = 12;
 }

@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::weapon
   particle: {fileID: 4784589907411527962}
+  ignorelayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &7028094125548229412
 GameObject:
   m_ObjectHideFlags: 0

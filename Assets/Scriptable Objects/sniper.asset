@@ -19,3 +19,5 @@ MonoBehaviour:
   IsAutomatic: 0
   CanZoom: 1
   ZoomIn: 10
+  rotationspeed: 0.3
+  maxammo: 6

@@ -2,7 +2,7 @@
 - Project name: Sharp shooter
 - Unity version: Unity 6000.3.10f1
 - Active game object:
-  - Name: active weapom
-  - Tag: Player
-  - Layer: Player
+  - Name: Ammo icon
+  - Tag: Untagged
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
