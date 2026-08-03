@@ -9,6 +9,8 @@ public class Navmesh : MonoBehaviour
     
     NavMeshAgent agent;
 
+    const string player_string = "Player";
+
     private void Awake()
     {
         player = FindFirstObjectByType<FirstPersonController>();
@@ -17,7 +19,17 @@ public class Navmesh : MonoBehaviour
 
     private void Update()
     {
+        if(!player) return;
         agent.SetDestination(player.transform.position);
+    }
+
+     void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(player_string))
+        {
+            EnemyHealth enemyHealth = GetComponent<EnemyHealth>();
+            enemyHealth.destroyprocess();
+        }
     }
 }
 

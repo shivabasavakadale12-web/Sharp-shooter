@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class weapon : MonoBehaviour
@@ -6,9 +7,18 @@ public class weapon : MonoBehaviour
     [SerializeField] LayerMask ignorelayer;
     EnemyHealth hitdamage;
 
+    CinemachineImpulseSource impulseSource;
+
+     void Awake()
+    {
+        impulseSource = GetComponent<CinemachineImpulseSource>();
+    }
     public void Shoot(WeaponSO weaponSO)
+
     {
      RaycastHit hit;
+     impulseSource.GenerateImpulse();
+
      particle.Play();
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, ignorelayer, QueryTriggerInteraction.Ignore))

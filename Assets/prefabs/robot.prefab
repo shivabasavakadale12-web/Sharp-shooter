@@ -45,8 +45,8 @@ GameObject:
   - component: {fileID: 2641481740107217135}
   - component: {fileID: 5960630109021700267}
   - component: {fileID: 5305082126795481954}
-  - component: {fileID: 8397509473055408872}
   - component: {fileID: 2204789493614704821}
+  - component: {fileID: 844858590470265577}
   m_Layer: 6
   m_Name: robot
   m_TagString: Enemy
@@ -139,20 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57fcc85650c84764abc4a98af82dcc6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  currenthealth: 0
-  health: 5
---- !u!114 &8397509473055408872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6011049248673812577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57fcc85650c84764abc4a98af82dcc6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  Robot_destroy: {fileID: 5100362452854103295, guid: d396f731ae63daf4ea4aa240a3213cd7, type: 3}
   currenthealth: 0
   health: 5
 --- !u!95 &2204789493614704821
@@ -177,6 +164,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &844858590470265577
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6011049248673812577}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7740281818048525150
 PrefabInstance:
   m_ObjectHideFlags: 0
