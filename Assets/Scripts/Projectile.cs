@@ -5,8 +5,9 @@ public class Projectile : MonoBehaviour
     [SerializeField] float speed = 30f;
 
     Rigidbody rb;
+    public int damage;
 
-     void Awake()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
@@ -15,16 +16,19 @@ public class Projectile : MonoBehaviour
         rb.linearVelocity = transform.forward * speed;
     }
 
+    public void init(int damage)
+    {
+        this.damage = damage;
+    }
      void OnTriggerEnter(Collider other)
     {
         PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-        playerHealth?.takedamage(1);
 
         if (other.CompareTag("Player"))
-        {
-            Destroy(other.gameObject);
-            Destroy(gameObject);
+        {   
+         playerHealth?.takedamage(damage);
         }
+            Destroy(gameObject);
 
     }
 
