@@ -6,9 +6,12 @@ public class spawngate : MonoBehaviour
     [SerializeField] GameObject Robots;
 
     PlayerHealth player;
+
+    game_manager manager;
    
     void Start()
     {
+        manager = FindFirstObjectByType(typeof(game_manager)) as game_manager;
         player = FindFirstObjectByType(typeof(PlayerHealth)) as PlayerHealth;       
        StartCoroutine(spawn());
     }
@@ -18,7 +21,8 @@ public class spawngate : MonoBehaviour
         while(player)
         {
          Instantiate(Robots, this.transform.position, Quaternion.identity);
-         yield return new WaitForSeconds(5f);
+            manager.adjustenemy(1);
+            yield return new WaitForSeconds(5f);
         }
       
     }

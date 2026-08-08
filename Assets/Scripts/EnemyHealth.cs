@@ -7,8 +7,11 @@ public class EnemyHealth : MonoBehaviour
 
     public int health = 5;
 
+    game_manager manager;
+
      void Awake()
     {
+        manager = FindFirstObjectByType<game_manager>();
         currenthealth = health;
     }
 
@@ -18,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (currenthealth <= 0) 
         {
+            manager.adjustenemy(-1);
             destroyprocess();
         }
     }
