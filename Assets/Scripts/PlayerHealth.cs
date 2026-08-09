@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public int health = 8;
 
     [SerializeField] GameObject gameover;
+    [SerializeField] GameObject crosshair;
     [SerializeField] CinemachineCamera deathcamera;
     [SerializeField] Transform weaponcamera;
     [SerializeField] Image[] shieldBars;
@@ -17,6 +18,8 @@ public class PlayerHealth : MonoBehaviour
     FirstPersonController FirstPersonController;
     void Awake()
     {
+        StarterAssetsInputs inputs = FindFirstObjectByType<StarterAssetsInputs>();
+        inputs.cursorLocked = true;
         Time.timeScale = 1f;
         FirstPersonController = FindFirstObjectByType<FirstPersonController>();
         gameover.SetActive(false);
@@ -34,6 +37,7 @@ public class PlayerHealth : MonoBehaviour
             weaponcamera.parent = null;
             StarterAssetsInputs inputs = FindFirstObjectByType<StarterAssetsInputs>();
             inputs.SetCursorState(false);
+            crosshair.SetActive(false);
             Destroy(this.gameObject);
         }
     }
