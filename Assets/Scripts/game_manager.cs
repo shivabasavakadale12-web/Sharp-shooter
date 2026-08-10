@@ -13,7 +13,7 @@ public class game_manager : MonoBehaviour
     public void adjustenemy(int amount)
     {
         enemycount += amount;
-        enemycounttext.text = "Enemies Left: " + enemycount.ToString();
+        enemycounttext.text = "Enemies: " + enemycount.ToString();
         if (enemycount <= 0)
         {
             Time.timeScale = 0f;

@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] GameObject Robot_destroy;
+    [SerializeField] bool registeronStart = false;
     public int currenthealth;
 
     public int health = 5;
@@ -13,6 +14,14 @@ public class EnemyHealth : MonoBehaviour
     {
         manager = FindFirstObjectByType<game_manager>();
         currenthealth = health;
+    }
+
+    void Start()
+    {
+        if (registeronStart)
+        {
+            manager.adjustenemy(1);
+        }
     }
 
     public void takedamage(int amount)

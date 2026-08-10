@@ -21,8 +21,8 @@ public class spawngate : MonoBehaviour
         while(player)
         {
          Instantiate(Robots, this.transform.position, Quaternion.identity);
-            manager.adjustenemy(1);
-            yield return new WaitForSeconds(8f);
+         manager.adjustenemy(1);
+         yield return new WaitForSeconds(8f);
         }    
     }
 }
