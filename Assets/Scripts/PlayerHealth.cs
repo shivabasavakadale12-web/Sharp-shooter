@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
     void Awake()
     {
         StarterAssetsInputs inputs = FindFirstObjectByType<StarterAssetsInputs>();
-        inputs.cursorLocked = true;
+        inputs.SetCursorState(true);
         Time.timeScale = 1f;
         FirstPersonController = FindFirstObjectByType<FirstPersonController>();
         gameover.SetActive(false);
