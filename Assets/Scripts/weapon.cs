@@ -5,6 +5,7 @@ public class weapon : MonoBehaviour
 {
     [SerializeField] ParticleSystem particle;
     [SerializeField] LayerMask ignorelayer;
+    [SerializeField] AudioSource shootingaudio;
     EnemyHealth hitdamage;
 
     CinemachineImpulseSource impulseSource;
@@ -18,7 +19,7 @@ public class weapon : MonoBehaviour
     {
      RaycastHit hit;
      impulseSource.GenerateImpulse();
-
+     shootingaudio.Play();
      particle.Play();
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, ignorelayer, QueryTriggerInteraction.Ignore))
